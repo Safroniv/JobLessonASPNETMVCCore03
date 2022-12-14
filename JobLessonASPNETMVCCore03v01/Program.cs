@@ -1,4 +1,5 @@
-﻿ConcreateEmployeCreater concreateEmploye = new ConcreateEmployeCreater();
+﻿
+ConcreateEmployeCreater concreateEmploye = new ConcreateEmployeCreater();
 BaseEmployee[] baseEmployees = new BaseEmployee[10];
 Random random = new Random();
 
