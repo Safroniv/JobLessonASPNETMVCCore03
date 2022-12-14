@@ -23,36 +23,33 @@ public class GenerateFCs
         return $"{GenerateName(i)}\t {GenerateName(j)}\t {GenerateName(k)}\t";
     }
     public static string GenerateName(int len)
-{
-    Random r = new Random();
-    string[] consonants = { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "l", "n", "p", "q", "r", "s", "sh", "zh", "t", "v", "w", "x" };
-    string[] vowels = { "a", "e", "i", "o", "u", "ae", "y" };
-    string Name = "";
-    Name += consonants[r.Next(consonants.Length)].ToUpper();
-    Name += vowels[r.Next(vowels.Length)];
-    int b = 2;
-    while (b < len)
     {
-        Name += consonants[r.Next(consonants.Length)];
-        b++;
+        Random r = new Random();
+        string[] consonants = { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "l", "n", "p", "q", "r", "s", "sh", "zh", "t", "v", "w", "x" };
+        string[] vowels = { "a", "e", "i", "o", "u", "ae", "y" };
+        string Name = "";
+        Name += consonants[r.Next(consonants.Length)].ToUpper();
         Name += vowels[r.Next(vowels.Length)];
-        b++;
+        int b = 2;
+        while (b < len)
+        {
+            Name += consonants[r.Next(consonants.Length)];
+            b++;
+            Name += vowels[r.Next(vowels.Length)];
+            b++;
+        }
+        return Name;
     }
-
-    return Name;
-}
-
-
 }
 
 
 public abstract class BaseEmployee
 {
-    public Employee Employee { get; set; }  
+    public Employee Employee { get; set; }
     public EmployeeType TypeEmployee { get; set; }
     public abstract decimal MonthPrice();
 
-    public BaseEmployee (EmployeeType typeEmployee)
+    public BaseEmployee(EmployeeType typeEmployee)
     {
         TypeEmployee = typeEmployee;
     }
@@ -77,7 +74,7 @@ public class Employee
     public string LastName { get; set; }
     public string Patronomic { get; set; }
 
-    public Employee (string firstName, string lastName, string patronomic)
+    public Employee(string firstName, string lastName, string patronomic)
     {
         FirstName = firstName;
         LastName = lastName;
